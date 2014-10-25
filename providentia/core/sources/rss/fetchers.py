@@ -1,5 +1,13 @@
-import feedparser
+from sources import DataSource
 
-class RSSFetcher(object):
+class Fetcher(object):
+    __data_adapter = None
+
     def __init__(self):
-        pass
+        self.__data_adapter = DataSource.get_instance()
+
+    def fetch_documents(self):
+        rss_list = self.__data_adapter.fetch_rss()
+        return rss_list
+    
+
