@@ -9,5 +9,5 @@ class Fetcher(object):
     def fetch_documents(self):
         rss_list = self.__data_adapter.fetch_rss()
         return rss_list
-    
+
 
