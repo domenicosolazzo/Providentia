@@ -1,0 +1,11 @@
+{
+    "data":{
+        "rss":[
+            {
+                "url": "http://feeds.reuters.com/reuters/technologyNews",
+                "id": "1",
+                "title": "technology news"
+            }
+        ]
+    }
+}
