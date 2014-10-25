@@ -29,6 +29,7 @@ class RssJSONSource(DataSource):
         try:
             with open(rss_file) as f:
                 rss_json = json.load(f)
-                return rss_json.get('data', {})
+                data = rss_json.get('data', {})
+                return data.get('rss', [])
         except:
             raise Exception("Rss not found")
