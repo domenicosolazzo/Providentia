@@ -1,5 +1,9 @@
-NoseGrowl==0.4
+BeautifulSoup==3.2.1
+-e git://github.com/j4mie/nosegrowl.git@adb42fa339091cf182c7492a0749ee5ecc59ad8a#egg=NoseGrowl-master
+NoseGrowlNotify==0.1
+beautifulsoup4==4.3.2
 feedparser==5.1.3
+gntp==1.0.2
 nltk==3.0.0
 nose==1.3.4
 py-Growl==0.0.7

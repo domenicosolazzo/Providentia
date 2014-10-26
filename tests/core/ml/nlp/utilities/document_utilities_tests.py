@@ -20,3 +20,9 @@ def test_wordpunct_tokenize():
     tokens = helper.wordpunct_tokenize(document)
     assert_true(isinstance(tokens, list))
     assert_true(len(tokens) == 4)
+
+def test_remove_html_markup():
+    helper = DocumentHelper()
+    document = "<div>This is a document</div>"
+    result = helper.remove_html_markup(document)
+    assert_equal("This is a document", result)

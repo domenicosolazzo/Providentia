@@ -7,7 +7,7 @@ class Fetcher(object):
     def __init__(self):
         self.__data_adapter = DataSource.get_instance()
 
-    def fetch_documents(self):
+    def fetch_feeds(self):
         feed_list = []
         rss_list = self.__data_adapter.fetch_rss()
         for rss in rss_list:
