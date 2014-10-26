@@ -1,12 +1,16 @@
 class TdIdf(object):
-    def __init__(self, word, document, documentList):
-        pass
+    word = ""
+    document = ""
+    document_list = []
 
-    def freq(word, document):
+    def __init__(self, word, document, documentList):
+        self.word = word
+        self.document = document
+        self.document_list = documentList
+
+    def frequency(self):
         """
         Frequency of a word in a given document
-        :param word: The word
-        :param document: The document
         :return: Frequency of a word in a given document
         """
-        return document.count(word)
+        return self.document.count(self.word)
