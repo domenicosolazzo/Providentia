@@ -14,3 +14,11 @@ class TdIdf(object):
         :return: Frequency of a word in a given document
         """
         return self.document.count(self.word)
+
+    def wordcount(self):
+        """
+        Word count in a document
+        :return: Number of characters in a document
+        """
+        return len(self.document)
+    
