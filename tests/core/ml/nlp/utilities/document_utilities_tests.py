@@ -25,5 +25,4 @@ def test_remove_html_markup():
 
 def test_get_stopwords():
     stopwords = DocumentHelper.get_stopwords()
-
     assert_true(len(stopwords)==0)

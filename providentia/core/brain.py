@@ -48,6 +48,8 @@ class ProvidentiaBrain(object):
             words.extend(DocumentHelper.wordpunct_tokenize(entry.title))
             # Lower all the words with more than a character
             lower_words=[x.lower() for x in words if len(x) > 1]
+
+
             # Add these words to a corpus
             corpus.append(lower_words)
             titles.append(entry.title)
