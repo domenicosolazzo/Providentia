@@ -1,5 +1,4 @@
 import math
-from operator import itemgetter
 class TdIdf(object):
     word = ""
     document = ""
