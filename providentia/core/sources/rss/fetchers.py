@@ -1,4 +1,5 @@
 from sources import DataSource
+from providentia.core.models.document import FeedDocument
 import feedparser
 
 class Fetcher(object):
@@ -11,7 +12,6 @@ class Fetcher(object):
         feed_list = []
         rss_list = self.__data_adapter.fetch_rss()
         for rss in rss_list:
-            print(rss_list)
             rss_href = rss.get('url', None)
             rss_title = rss.get('title', '-')
             if rss_href is not None:
@@ -32,5 +32,18 @@ class Fetcher(object):
                 })
 
         return feed_list
+
+    def fetch_entries(self):
+        entries = []
+        rss_list = self.__data_adapter.fetch_rss()
+        for rss in rss_list:
+            print(rss_list)
+            rss_href = rss.get('url', None)
+            rss_title = rss.get('title', '-')
+            if rss_href is not None:
+                feed = feedparser.parse(rss_href)
+                [entries.append(FeedDocument(entry.get('title', ''), entry.get('summary_detail', ''))) for entry in feed.get('entries', [])]
+        return entries
+
 
 
