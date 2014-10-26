@@ -1,5 +1,5 @@
 import math
-class TdIdf(object):
+class TfIdf(object):
     word = ""
     document = ""
     document_list = []
