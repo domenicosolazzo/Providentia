@@ -65,3 +65,5 @@ class TfIdf(object):
         :return: The numerical statistic value
         """
         return (self.tf(self.word,self.document) * self.idf(self.word,self.document_list))
+
+

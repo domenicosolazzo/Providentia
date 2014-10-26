@@ -1,14 +1,16 @@
 import feedparser
 import os
 import json
+from providentia.configurations.config import ConfigurationManager
 
 class DataSource(object):
     def __init__(self):
         pass
-
     @staticmethod
     def get_instance():
-        data_source_type = os.environ.get('RSS_DATA_SOURCE_TYPE', "JSON")
+        config_manger = ConfigurationManager()
+        data_source_type = config_manger.RSS_DATA_SOURCE_TYPE
+
         if data_source_type == "JSON":
             return RssJSONSource()
         else:

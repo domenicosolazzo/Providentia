@@ -1,6 +1,6 @@
 from nltk import wordpunct_tokenize
 from bs4 import BeautifulSoup
-
+from providentia.core.ml.nlp.tdidf import TfIdf
 
 class DocumentHelper(object):
     def __init__(self):
@@ -30,6 +30,20 @@ class DocumentHelper(object):
         """
         html_parser = BeautifulSoup(html_document)
         return html_parser.get_text()
+
+    @staticmethod
+    def create_feature_vector(self, corpus, top_keywords):
+        """
+        Now that we have this superset of keywords, we need to go through each document again and
+        compute TF-IDF for each term. Thus, this will be likely be a sparse vector as most of the entries will be zero.
+        """
+        feature_vectors=[]
+        n=len(corpus)
+
+        for document in corpus:
+            vec=[]
+            [vec.append(TfIdf(word, document, corpus).calculate() if word in document else 0) for word in top_keywords]
+            feature_vectors.append(vec)
 
 
 

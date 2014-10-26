@@ -9,6 +9,10 @@ class Fetcher(object):
         self.__data_adapter = DataSource.get_instance()
 
     def fetch_feeds(self):
+        """
+        Fetch information from a list of rss feeds
+        :return: A list of feed
+        """
         feed_list = []
         rss_list = self.__data_adapter.fetch_rss()
         for rss in rss_list:
@@ -34,15 +38,17 @@ class Fetcher(object):
         return feed_list
 
     def fetch_entries(self):
+        """
+        Fetch entries from a list of rss feed
+        :return: A list of entries
+        """
         entries = []
         rss_list = self.__data_adapter.fetch_rss()
         for rss in rss_list:
-            print(rss_list)
             rss_href = rss.get('url', None)
-            rss_title = rss.get('title', '-')
             if rss_href is not None:
                 feed = feedparser.parse(rss_href)
-                [entries.append(FeedDocument(entry.get('title', ''), entry.get('summary_detail', ''))) for entry in feed.get('entries', [])]
+                [entries.append(FeedDocument(entry.get('title', ''), entry.get('summary', ''))) for entry in feed.get('entries', [])]
         return entries
 
 
