@@ -5,7 +5,7 @@ def test_frequency_of_a_word():
     document = "abc abc abc ciao I am Domenico"
     word = "abc"
     tdidf = TdIdf(word, document, [])
-    result = tdidf.frequency()
+    result = tdidf.frequency(document)
     assert_equal(3, result)
 
 def test_word_count():
