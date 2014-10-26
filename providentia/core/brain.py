@@ -13,7 +13,12 @@ class ProvidentiaBrain(object):
 
     def fetch_top_keywords(self):
         corpus = []
+        titles = []
+        document_list = []
         entries = self.fetcher.fetch_entries()
+        keywords_fetcher = Keywords(self.config_manger.NUMBER_KEYWORDS)
+
+        doc_id = 1
         for entry in entries:
             # Cleaning the description of each entry from the markup
             words = DocumentHelper.wordpunct_tokenize(DocumentHelper.remove_html_markup(entry.description))
@@ -22,11 +27,15 @@ class ProvidentiaBrain(object):
             lower_words=[x.lower() for x in words if len(x) > 1]
             # Add these words to a corpus
             corpus.append(lower_words)
+            titles.append(entry.title)
+            keywords_by_document = keywords_fetcher.top_keywords_in_document(lower_words, corpus)
+            document_list.append({'id':doc_id, 'title': entry.title, 'keywords':keywords_by_document})
+            doc_id = doc_id + 1
 
-        keywords_fetcher = Keywords(ConfigurationManager.NUMBER_KEYWORDS)
         # Fetch the top keywords from the corpus
         top_keywords = keywords_fetcher.top_keywords_in_corpus(corpus)
-        return top_keywords
+
+        return {'top_keywords': top_keywords, 'keywords_by_document':document_list}
 
     def winsdom(self):
         words = []

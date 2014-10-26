@@ -22,3 +22,8 @@ def test_remove_html_markup():
     document = "<div>This is a document</div>"
     result = DocumentHelper.remove_html_markup(document)
     assert_equal("This is a document", result)
+
+def test_get_stopwords():
+    stopwords = DocumentHelper.get_stopwords()
+
+    assert_true(len(stopwords)==0)

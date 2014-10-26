@@ -1,10 +1,17 @@
 from nltk import wordpunct_tokenize
 from bs4 import BeautifulSoup
 from providentia.core.ml.nlp.tdidf import TfIdf
-
+from  nltk.corpus import stopwords
 class DocumentHelper(object):
     def __init__(self):
         pass
+
+    @staticmethod
+    def get_stopwords():
+        stopwords_list = []
+        for language in stopwords.fileids():
+            stopwords_list.extend(list(stopwords.words(language)))
+        return set(stopwords_list)
 
     @staticmethod
     def words_longer_than(words_list, length):

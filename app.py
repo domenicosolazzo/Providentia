@@ -6,8 +6,13 @@ app = Flask(__name__)
 @app.route('/keywords')
 def keywords():
     brain = ProvidentiaBrain()
-    k = brain.fetch_top_keywords()
-    return jsonify(data={'entries':k, 'count':len(k)})
+    data = brain.fetch_top_keywords()
+    top_keywords = data.get('top_keywords',[])
+    return jsonify(data={
+        'entries':list(top_keywords),
+        'count':len(top_keywords),
+        'keywords_by_document':list(data.get('keywords_by_document',[]))
+    })
 
 
 @app.route('/')
