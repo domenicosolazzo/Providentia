@@ -43,3 +43,16 @@ class TdIdf(object):
         :return: term frequency
         """
         return (self.frequency(word,document) / float(self.word_count(document)))
+
+
+    def idf(self, word, documentList):
+        """
+        The inverse document frequency is a measure of how much information the word provides, that is,
+        whether the term is common or rare across all documents. It is the logarithmically scaled fraction of the documents
+        that contain the word, obtained by dividing the total number of documents
+        by the number of documents containing the term, and then taking the logarithm of that quotient.
+        :param word:
+        :param documentList:
+        :return:
+        """
+        return math.log(len(documentList) / self.num_docs_containing_word(word,documentList))

@@ -26,3 +26,11 @@ def test_term_frequency():
     tdidf = TdIdf("house", document, [])
     result = tdidf.tf(word, document) #it should be 0.038....
     assert_true(result > 0 and result < 1)
+
+def test_idf():
+    word = 'house'
+    document_list = ["I have a house", "This is another document", "yet another document", "My house is blue"]
+    tdidf = TdIdf("house", "", [])
+    result = tdidf.idf(word, document_list) # It should be 0.6931....
+    assert_true(result > 0 and result < 1)
+    
