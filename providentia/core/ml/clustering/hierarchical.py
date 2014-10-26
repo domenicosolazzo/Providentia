@@ -4,9 +4,9 @@ from hcluster import linkage, dendrogram
 from providentia.configurations.config import ConfigurationManager
 class HierarichicalCluster(object):
     """
-    Agglomerative or hierarchical clustering. Here clusters are grown by fusing neighboring documents to form a tree.
-    The structure of that tree may change radically among different days but we can choose a similarity threshold to
-    prune the tree to a set of final clusters. That similarity metric can be constant over days.
+    Agglomerative or hierarchical clustering.
+    Clusters will grown by fusing neighboring documents to form a tree.
+    We can choose a similarity threshold to prune the tree to a set of final clusters. 
     """
     def __init__(self):
         config_manger = ConfigurationManager()
