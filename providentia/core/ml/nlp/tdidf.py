@@ -28,7 +28,7 @@ class TdIdf(object):
         :return: The number of documents containing a given word
         """
         count = 0
-        for document in self.document_list:
-            if self.frequency(document) > 0:
+        for doc in self.document_list:
+            if self.frequency(doc) > 0:
               count += 1
-            return count
+        return count

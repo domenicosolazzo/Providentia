@@ -13,3 +13,9 @@ def test_word_count():
     tdidf = TdIdf("", document, [])
     result = tdidf.wordcount()
     assert_equal(13, result)
+
+def test_num_docs_containing_word():
+    documentList = ["I am Domenico", "Let's watch tv", "Domenico watches tv"]
+    tdidf = TdIdf("Domenico", "", documentList)
+    result = tdidf.numDocsContainingWord()
+    assert_equal(2, result)
