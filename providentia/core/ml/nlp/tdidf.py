@@ -55,4 +55,14 @@ class TdIdf(object):
         :param documentList:
         :return:
         """
-        return math.log(len(documentList) / self.num_docs_containing_word(word,documentList))
+        num_docs = self.num_docs_containing_word(word,documentList) + 1 # +1 to avoid division by 0
+
+        return math.log(len(documentList) / num_docs)
+
+    def calculate(self):
+        """
+        Calculate a numerical statistic that is intended to reflect how important a word is to a document
+        in a collection or corpus.
+        :return: The numerical statistic value
+        """
+        return (self.tf(self.word,self.document) * self.idf(self.word,self.document_list))
