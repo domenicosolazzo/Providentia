@@ -1,3 +1,4 @@
+from nltk import wordpunct_tokenize
 
 class DocumentHelper(object):
     def __init__(self):
@@ -8,3 +9,5 @@ class DocumentHelper(object):
             raise Exception("The words_list must be a list")
 
         return [word for word in words_list if len(word) > length]
+
+        
