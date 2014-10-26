@@ -13,3 +13,10 @@ def test_words_longer_than_raises_exception_if_input_is_not_a_list():
     assert_raises(Exception, helper.words_longer_than, {}, 1)
     assert_raises(Exception, helper.words_longer_than, True, 1)
     assert_raises(Exception, helper.words_longer_than, 100, 1)
+
+def test_wordpunct_tokenize():
+    helper = DocumentHelper()
+    document = "This is a document"
+    tokens = helper.wordpunct_tokenize(document)
+    assert_true(isinstance(tokens, list))
+    assert_true(len(tokens) == 4)

@@ -7,7 +7,16 @@ class DocumentHelper(object):
     def words_longer_than(self, words_list, length):
         if not isinstance(words_list, list):
             raise Exception("The words_list must be a list")
-
         return [word for word in words_list if len(word) > length]
 
-        
+    def wordpunct_tokenize(self, document):
+        """
+        Convert the text in tokens
+        :param document: The document text
+        :return: A list of tokens
+        """
+        return wordpunct_tokenize(document)
+
+
+
+
