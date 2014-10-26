@@ -31,6 +31,12 @@ RUNNING
 python app.py
 ```
 
+TESTING
+=======
+```
+tdaemon --custom-args="--with-nosegrowlnotify --all-modules"
+```
+
 ENVIRONMENTAL VARIABLES
 =======================
 - NUMBER_KEYWORDS: Number the keywords for document (default is 4)
