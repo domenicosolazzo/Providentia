@@ -17,14 +17,14 @@ class TdIdf(object):
         """
         return document.count(word)
 
-    def wordcount(self, document):
+    def word_count(self, document):
         """
         Word count in a document
         :return: Number of characters in a document
         """
         return len(document)
 
-    def numDocsContainingWord(self, word, document_list):
+    def num_docs_containing_word(self, word, document_list):
         """
         Number of document containing a given word
         :return: The number of documents containing a given word
@@ -42,4 +42,4 @@ class TdIdf(object):
         :param document: A given document
         :return: term frequency
         """
-        return (self.frequency(word,document) / float(self.wordCount(document)))
+        return (self.frequency(word,document) / float(self.word_count(document)))
