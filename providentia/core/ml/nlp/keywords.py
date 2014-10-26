@@ -26,5 +26,6 @@ class Keywords(object):
         :return:Top keywords in a corpus
         """
         keyword_list = set()
+
         [[keyword_list.add(x) for x in self.top_keywords_in_document(doc,corpus)] for doc in corpus]
         return keyword_list

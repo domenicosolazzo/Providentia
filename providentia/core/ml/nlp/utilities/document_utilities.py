@@ -32,7 +32,7 @@ class DocumentHelper(object):
         return html_parser.get_text()
 
     @staticmethod
-    def create_feature_vector(self, corpus, top_keywords):
+    def create_feature_vector(corpus, top_keywords):
         """
         Now that we have this superset of keywords, we need to go through each document again and
         compute TF-IDF for each term. Thus, this will be likely be a sparse vector as most of the entries will be zero.
@@ -44,6 +44,7 @@ class DocumentHelper(object):
             vec=[]
             [vec.append(TfIdf(word, document, corpus).calculate() if word in document else 0) for word in top_keywords]
             feature_vectors.append(vec)
+        return feature_vectors
 
 
 

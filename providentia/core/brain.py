@@ -43,7 +43,7 @@ class ProvidentiaBrain(object):
             corpus.append(lower_words)
             titles.append(entry.title)
 
-        keywords_fetcher = Keywords(ConfigurationManager.NUMBER_KEYWORDS)
+        keywords_fetcher = Keywords(self.config_manger.NUMBER_KEYWORDS)
         # Fetch the top keywords from the corpus
         top_keywords = keywords_fetcher.top_keywords_in_corpus(corpus)
 
@@ -56,9 +56,5 @@ class ProvidentiaBrain(object):
         hierarchical_cluster = HierarichicalCluster()
         clusters = hierarchical_cluster.fetch_clusters(mat, len(corpus))
 
-        for key in clusters:
-           print "============================================="
-           for id in clusters[key]:
-               print id,titles[id]
 
-        return {'keywords': top_keywords, 'clusters':clusters, 'titles': titles}
+        return {'keywords': list(top_keywords), 'clusters':clusters, 'titles': titles}

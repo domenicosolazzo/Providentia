@@ -9,15 +9,15 @@ class ConfigurationManager(object):
 
     @property
     def HIERARCHICAL_CLUSTERING_T(self):
-        return os.environ.get('HIERARCHICAL_CLUSTERING_T', 4)
+        return os.environ.get('HIERARCHICAL_CLUSTERING_T', 0.8)
 
     @property
     def HIERARCHICAL_CLUSTERING_IMAGE(self):
-        return os.environ.get('HIERARCHICAL_CLUSTERING_IMAGE', 4)
+        return os.environ.get('HIERARCHICAL_CLUSTERING_IMAGE', 'hcluster.jpg')
 
     @property
     def HIERARCHICAL_CLUSTERING_DPI(self):
-        return os.environ.get('HIERARCHICAL_CLUSTERING_DPI', 4)
+        return os.environ.get('HIERARCHICAL_CLUSTERING_DPI', 800)
 
     @property
     def RSS_DATA_SOURCE_TYPE(self):

@@ -8,7 +8,7 @@ class HierarichicalCluster(object):
     The structure of that tree may change radically among different days but we can choose a similarity threshold to
     prune the tree to a set of final clusters. That similarity metric can be constant over days.
     """
-    def __init__(self, t):
+    def __init__(self):
         config_manger = ConfigurationManager()
         self.t = config_manger.HIERARCHICAL_CLUSTERING_T
         self.cluster_image = config_manger.HIERARCHICAL_CLUSTERING_IMAGE
