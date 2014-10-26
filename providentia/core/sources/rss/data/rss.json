@@ -5,6 +5,36 @@
                 "url": "http://feeds.reuters.com/reuters/technologyNews",
                 "id": "1",
                 "title": "technology news"
+            },
+            {
+                "url": "http://www.sfgate.com/rss/feed/Tech-News-449.php",
+                "id": 2,
+                "title": "tech news - sfgate"
+            },
+            {
+                "url": "http://feeds.feedburner.com/TechCrunch/startups",
+                "id": 3,
+                "title": "TechCrunch - Startups"
+            },
+            {
+                "url": "http://news.cnet.com/8300-1001_3-92.xml",
+                "id":4,
+                "title": "cnet"
+            },
+            {
+                "url": "http://www.zdnet.com/news/rss.xml",
+                "id":5,
+                "title":"ZDNET"
+            },
+            {
+                "url":"http://www.computerweekly.com/rss/Latest-IT-news.xml",
+                "id":6,
+                "title":"Computer Weekly"
+            },
+            {
+                "url":"http://www.tweaktown.com/news-feed/",
+                "id":7,
+                "title":"Tweaktown"
             }
         ]
     }

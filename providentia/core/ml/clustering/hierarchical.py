@@ -6,7 +6,7 @@ class HierarichicalCluster(object):
     """
     Agglomerative or hierarchical clustering.
     Clusters will grown by fusing neighboring documents to form a tree.
-    We can choose a similarity threshold to prune the tree to a set of final clusters. 
+    We can choose a similarity threshold to prune the tree to a set of final clusters.
     """
     def __init__(self):
         config_manger = ConfigurationManager()

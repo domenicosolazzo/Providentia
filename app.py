@@ -7,7 +7,7 @@ app = Flask(__name__)
 def keywords():
     brain = ProvidentiaBrain()
     k = brain.fetch_top_keywords()
-    return jsonify(data=k)
+    return jsonify(data={'entries':k, 'count':len(k)})
 
 
 @app.route('/')
@@ -16,6 +16,7 @@ def top_keywords():
     data = brain.winsdom()
     clusters = data.get('clusters', [])
     titles = data.get('titles', [])
+    k = data.get('keywords',[])
 
     c = {}
     keys = []
@@ -24,7 +25,9 @@ def top_keywords():
        for id in clusters[key]:
          documents.append({'id':id,'title:':titles[id]})
        c[key] = documents
-    return jsonify(data={ 'keywords':data.get('keywords',[]), 'clusters':c, 'titles':titles})
+    return jsonify(data={ 'keywords':{'entries':k, 'count':len(k)},
+                          'clusters':c,
+                          'titles':{'entries':titles, 'count':len(titles)}})
 
 if __name__ == '__main__':
     app.debug = True
